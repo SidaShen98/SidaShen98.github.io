@@ -6,64 +6,67 @@
   <title>Sida Shen | Portfolio</title>
   <style>
     :root { 
-      --max-w: 1000px; 
+      --max-w: 1050px; 
       --text-main: #1d1d1f;
       --text-sub: #636366;
       --accent: #0055ff;
       --line: #eee;
     }
 
-    body { margin: 0; font-family: -apple-system, sans-serif; color: var(--text-main); background: #fff; line-height: 1.5; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--text-main); background: #fff; line-height: 1.5; -webkit-font-smoothing: antialiased; }
     a { color: inherit; text-decoration: none; transition: 0.2s; }
-    .wrap { max-width: var(--max-w); margin: 0 auto; padding: 60px 24px; }
+    .wrap { max-width: var(--max-w); margin: 0 auto; padding: 70px 24px; }
 
     /* --- Header --- */
     header { 
       display: flex; 
       justify-content: space-between; 
-      align-items: flex-start;
-      margin-bottom: 40px; 
+      align-items: center;
+      margin-bottom: 50px; 
     }
-    h1 { margin: 0; font-size: 32px; font-weight: 700; }
-    .cv-link { font-size: 14px; font-weight: 500; color: var(--text-sub); border: 1px solid var(--line); padding: 6px 12px; border-radius: 6px; }
-    .cv-link:hover { border-color: var(--text-main); color: var(--text-main); }
+    h1 { margin: 0; font-size: 36px; font-weight: 700; letter-spacing: -0.02em; }
+    .cv-link { font-size: 13px; font-weight: 600; color: var(--text-sub); border: 1.5px solid var(--line); padding: 7px 16px; border-radius: 8px; transition: all 0.2s; }
+    .cv-link:hover { border-color: var(--text-main); color: var(--text-main); background: #fafafa; }
 
-    /* --- Profile Section --- */
-    .profile-section {
+    /* --- Info Section Layout --- */
+    .info-grid {
       display: grid;
-      grid-template-columns: 1fr 2fr; /* 缩小教育，给技能更多空间 */
-      gap: 50px;
+      grid-template-columns: 1fr 2fr;
+      gap: 60px;
       margin-bottom: 60px;
-      padding-bottom: 40px;
+      padding-bottom: 50px;
       border-bottom: 1px solid var(--line);
     }
 
-    @media (max-width: 800px) { .profile-section { grid-template-columns: 1fr; gap: 30px; } }
+    @media (max-width: 850px) { .info-grid { grid-template-columns: 1fr; gap: 40px; } }
 
-    .label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #aaa; margin-bottom: 15px; }
+    .label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #bbb; margin-bottom: 20px; }
 
-    /* Education */
-    .edu-content h2 { font-size: 17px; margin: 0 0 6px; font-weight: 600; }
-    .edu-content p { margin: 0; font-size: 14px; color: var(--text-sub); }
-    .dean-list { display: inline-block; margin-top: 8px; font-size: 11px; color: var(--accent); background: #f0f5ff; padding: 2px 8px; border-radius: 4px; }
+    /* Left Column: Edu & Achievement */
+    .left-col { display: flex; flex-direction: column; gap: 40px; }
+    .info-item h2 { font-size: 17px; margin: 0 0 8px; font-weight: 600; }
+    .info-item p { margin: 0; font-size: 14.5px; color: var(--text-sub); line-height: 1.6; }
 
-    /* Skills - 紧凑型列表设计 */
-    .skills-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 30px; }
-    @media (max-width: 500px) { .skills-container { grid-template-columns: 1fr; } }
+    /* Right Column: Skills Grid */
+    .skills-container { display: grid; grid-template-columns: 1fr 1fr; gap: 30px 40px; }
+    @media (max-width: 550px) { .skills-container { grid-template-columns: 1fr; } }
 
-    .skill-item { font-size: 13px; line-height: 1.6; }
-    .skill-title { font-weight: 600; color: #333; margin-bottom: 4px; display: block; }
-    .skill-list { color: var(--text-sub); }
+    .skill-block { font-size: 13.5px; }
+    .skill-title { font-weight: 600; color: #111; margin-bottom: 6px; display: block; font-size: 14px; }
+    .skill-content { color: var(--text-sub); line-height: 1.6; }
 
-    /* --- Project Grid (保持原样) --- */
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
-    @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
-    .card { display: flex; flex-direction: column; }
-    .thumb { aspect-ratio: 4/3; border-radius: 10px; background: #f5f5f7; margin-bottom: 12px; overflow: hidden; }
+    /* --- Projects Section --- */
+    .section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #bbb; margin-bottom: 25px; }
+    .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+    @media (max-width: 900px) { .project-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .project-grid { grid-template-columns: 1fr; } }
+
+    .card { display: flex; flex-direction: column; transition: transform 0.3s ease; }
+    .card:hover { transform: translateY(-5px); }
+    .thumb { aspect-ratio: 4/3; border-radius: 12px; background: #f5f5f7; margin-bottom: 16px; overflow: hidden; border: 1px solid #f0f0f0; }
     .thumb img { width: 100%; height: 100%; object-fit: cover; }
-    .project-title { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
-    .project-desc { font-size: 13px; color: var(--text-sub); }
+    .p-title { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+    .p-desc { font-size: 13.5px; color: var(--text-sub); line-height: 1.5; }
   </style>
 </head>
 <body>
@@ -71,50 +74,54 @@
 <div class="wrap">
   <header>
     <h1>Sida Shen</h1>
-    <a href="your-cv-link.pdf" class="cv-link">CV (PDF)</a>
+    <a href="resume.pdf" target="_blank" class="cv-link">CV (PDF)</a>
   </header>
 
-  <section class="profile-section">
-    <div class="edu-column">
-      <div class="label">Education</div>
-      <div class="edu-content">
+  <div class="info-grid">
+    <div class="left-col">
+      <div class="info-item">
+        <div class="label">Education</div>
         <h2>University of California, Davis</h2>
-        <p>Bachelor of Science in Sustainable Environmental Design</p> [cite: 4, 5]
-        <span class="dean-list">Dean's Honors List</span> [cite: 9]
+        <p>Bachelor of Science in Sustainable Environmental Design [cite: 4, 5]</p>
+      </div>
+      
+      <div class="info-item">
+        <div class="label">Achievement</div>
+        <p>Dean’s Honors List, College of Agricultural and Environmental Sciences </p>
       </div>
     </div>
 
-    <div class="skills-column">
+    <div class="right-col">
       <div class="label">Technical Skills</div>
       <div class="skills-container">
-        <div class="skill-item">
-          <span class="skill-title">Data & Research</span>
-          <span class="skill-list">R, RStudio, Excel, Statistical Reasoning, Data Visualization, Qualitative Analysis, Research Writing</span> [cite: 30]
+        <div class="skill-block">
+          <span class="skill-title">Data & Research Methods</span>
+          <span class="skill-content">R, RStudio, Excel, Statistical Reasoning, Data Visualization, Qualitative Analysis, Research Writing, White Paper Development, Policy Memo Drafting [cite: 30]</span>
         </div>
-        <div class="skill-item">
-          <span class="skill-title">Spatial & Analytical</span>
-          <span class="skill-list">QGIS, ArcGIS Pro, Spatial Analysis, GIS Mapping, Land-use Assessment, Site Analysis</span> [cite: 31]
+        <div class="skill-block">
+          <span class="skill-title">Spatial & Analytical Tools</span>
+          <span class="skill-content">QGIS, ArcGIS Pro, Spatial Analysis, GIS Mapping, Land-use Assessment, Site Analysis, Spatial Representation [cite: 31]</span>
         </div>
-        <div class="skill-item">
+        <div class="skill-block">
           <span class="skill-title">Design & Visualization</span>
-          <span class="skill-list">AutoCAD, Photoshop, Illustrator, InDesign, Figma, Concept Visualization, Site Planning Graphics</span> [cite: 32]
+          <span class="skill-content">AutoCAD, Adobe Photoshop, Illustrator, InDesign, Figma, Diagramming, Concept Visualization, Site Planning Graphics [cite: 32]</span>
         </div>
-        <div class="skill-item">
+        <div class="skill-block">
           <span class="skill-title">Domain Knowledge</span>
-          <span class="skill-list">Environmental Planning/Law, Sustainable Design, Community Participation, Conservation Planning, Site Ecology</span> [cite: 33]
+          <span class="skill-content">Environmental Planning, Environmental Law, Sustainable Design Strategies, Community Participation Methods, Conservation Planning, Green Building Materials, Site Ecology [cite: 33]</span>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <div class="label">Selected Projects</div>
-  <section class="grid">
-    <div class="card">
-      <div class="thumb"><img src="project-img.jpg" alt=""></div>
-      <div class="project-title">项目名称</div>
-      <div class="project-desc">简短描述</div>
-    </div>
-  </section>
+  <div class="section-title">Selected Projects</div>
+  <section class="project-grid">
+    <a href="project-1.html" class="card">
+      <div class="thumb"><img src="assets/project1.jpg" alt=""></div>
+      <div class="p-title">California Watershed Mapping</div>
+      <div class="p-desc">Statewide spatial analysis integrating biodiversity hotspots and environmental vulnerability. [cite: 19, 20]</div>
+    </a>
+    </section>
 </div>
 
 </body>
