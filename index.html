@@ -4,27 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Sida Shen | Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
   <style>
     :root { 
       --max-w: 1000px; 
       --text-main: #1d1d1f;
       --text-sub: #636366;
       --accent: #0055ff;
-      --bg-gray: #f5f5f7;
+      --line: #eee;
     }
 
-    body { 
-      margin: 0; 
-      font-family: 'Inter', -apple-system, sans-serif; 
-      color: var(--text-main); 
-      background: #fff; 
-      line-height: 1.6;
-    }
-
+    body { margin: 0; font-family: -apple-system, sans-serif; color: var(--text-main); background: #fff; line-height: 1.5; }
     a { color: inherit; text-decoration: none; transition: 0.2s; }
     .wrap { max-width: var(--max-w); margin: 0 auto; padding: 60px 24px; }
 
@@ -33,176 +22,99 @@
       display: flex; 
       justify-content: space-between; 
       align-items: flex-start;
-      margin-bottom: 50px; 
+      margin-bottom: 40px; 
     }
-    h1 { margin: 0; font-size: 34px; font-weight: 700; letter-spacing: -0.02em; }
-    .links { font-size: 14px; color: var(--text-sub); text-align: right; line-height: 1.8; }
-    .links a:hover { color: var(--accent); text-decoration: underline; }
+    h1 { margin: 0; font-size: 32px; font-weight: 700; }
+    .cv-link { font-size: 14px; font-weight: 500; color: var(--text-sub); border: 1px solid var(--line); padding: 6px 12px; border-radius: 6px; }
+    .cv-link:hover { border-color: var(--text-main); color: var(--text-main); }
 
-    /* --- Education & Skills Section (The Core) --- */
+    /* --- Profile Section --- */
     .profile-section {
       display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 40px;
-      margin-bottom: 80px;
+      grid-template-columns: 1fr 2fr; /* 缩小教育，给技能更多空间 */
+      gap: 50px;
+      margin-bottom: 60px;
       padding-bottom: 40px;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid var(--line);
     }
 
-    @media (max-width: 768px) {
-      .profile-section { grid-template-columns: 1fr; gap: 30px; }
-    }
+    @media (max-width: 800px) { .profile-section { grid-template-columns: 1fr; gap: 30px; } }
 
-    .section-label { 
-      font-size: 12px; 
-      font-weight: 600; 
-      text-transform: uppercase; 
-      letter-spacing: 0.1em; 
-      color: #999; 
-      margin-bottom: 16px;
-    }
+    .label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #aaa; margin-bottom: 15px; }
 
-    /* Education Style */
-    .edu-content h2 { font-size: 18px; margin: 0 0 8px 0; font-weight: 600; }
-    .edu-content p { margin: 0; font-size: 15px; color: var(--text-sub); }
-    .honor-tag { 
-      display: inline-block; 
-      margin-top: 10px; 
-      font-size: 12px; 
-      background: #eef4ff; 
-      color: var(--accent); 
-      padding: 2px 8px; 
-      border-radius: 4px; 
-      font-weight: 500;
-    }
+    /* Education */
+    .edu-content h2 { font-size: 17px; margin: 0 0 6px; font-weight: 600; }
+    .edu-content p { margin: 0; font-size: 14px; color: var(--text-sub); }
+    .dean-list { display: inline-block; margin-top: 8px; font-size: 11px; color: var(--accent); background: #f0f5ff; padding: 2px 8px; border-radius: 4px; }
 
-    /* Skills Badges Style */
-    .skills-group { margin-bottom: 20px; }
-    .skills-group:last-child { margin-bottom: 0; }
-    .badge-container { display: flex; flex-wrap: wrap; gap: 8px; }
-    
-    .badge {
-      background: var(--bg-gray);
-      color: #444;
-      padding: 6px 12px;
-      border-radius: 8px;
-      font-size: 13px;
-      font-weight: 500;
-      transition: all 0.2s;
-    }
-    .badge:hover { background: #e8e8ed; transform: translateY(-1px); }
+    /* Skills - 紧凑型列表设计 */
+    .skills-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 30px; }
+    @media (max-width: 500px) { .skills-container { grid-template-columns: 1fr; } }
 
-    /* --- Project Grid --- */
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+    .skill-item { font-size: 13px; line-height: 1.6; }
+    .skill-title { font-weight: 600; color: #333; margin-bottom: 4px; display: block; }
+    .skill-list { color: var(--text-sub); }
+
+    /* --- Project Grid (保持原样) --- */
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
     @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
-
-    .card { display: flex; flex-direction: column; text-decoration: none; }
-    .thumb { 
-      aspect-ratio: 4/3; 
-      overflow: hidden; 
-      border-radius: 12px; 
-      background: var(--bg-gray);
-      margin-bottom: 15px;
-    }
-    .thumb img { width:100%; height:100%; object-fit:cover; transition: transform 0.5s ease; }
-    .card:hover .thumb img { transform: scale(1.05); }
-    
-    .title { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
-    .summary { font-size: 13px; color: var(--text-sub); line-height: 1.5; margin-bottom: 10px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-    .tag { font-size: 11px; color: #aaa; font-weight: 600; text-transform: uppercase; }
-
-    footer { margin-top: 80px; color: #ccc; font-size: 12px; text-align: center; }
+    .card { display: flex; flex-direction: column; }
+    .thumb { aspect-ratio: 4/3; border-radius: 10px; background: #f5f5f7; margin-bottom: 12px; overflow: hidden; }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .project-title { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+    .project-desc { font-size: 13px; color: var(--text-sub); }
   </style>
 </head>
 <body>
 
 <div class="wrap">
   <header>
-    <div>
-      <h1>Sida Shen</h1>
-      <p style="color: var(--text-sub); margin-top: 8px;">Ph.D. Applicant | Sustainable Environmental Design</p>
-    </div>
-    <div class="links">
-      <a href="mailto:drshen@ucdavis.edu">drshen@ucdavis.edu</a><br>
-      <a href="#">GitHub</a> / <a href="#">LinkedIn</a> / <a href="#">CV (PDF)</a>
-    </div>
+    <h1>Sida Shen</h1>
+    <a href="your-cv-link.pdf" class="cv-link">CV (PDF)</a>
   </header>
 
   <section class="profile-section">
     <div class="edu-column">
-      <div class="section-label">Education</div>
+      <div class="label">Education</div>
       <div class="edu-content">
         <h2>University of California, Davis</h2>
-        <p>Bachelor of Science in Sustainable Environmental Design </p>
-        <span class="honor-tag">Dean's Honors List</span> 
+        <p>Bachelor of Science in Sustainable Environmental Design</p> [cite: 4, 5]
+        <span class="dean-list">Dean's Honors List</span> [cite: 9]
       </div>
     </div>
 
     <div class="skills-column">
-      <div class="section-label">Technical Skills</div>
-      
-      <div class="skills-group">
-        <div class="badge-container">
-          <span class="badge">R / RStudio</span>
-          <span class="badge">Statistical Reasoning</span>
-          <span class="badge">Data Visualization</span>
-          <span class="badge">Spatial Analysis</span> [cite: 30, 31]
+      <div class="label">Technical Skills</div>
+      <div class="skills-container">
+        <div class="skill-item">
+          <span class="skill-title">Data & Research</span>
+          <span class="skill-list">R, RStudio, Excel, Statistical Reasoning, Data Visualization, Qualitative Analysis, Research Writing</span> [cite: 30]
         </div>
-      </div>
-
-      <div class="skills-group">
-        <div class="badge-container">
-          <span class="badge">ArcGIS Pro</span>
-          <span class="badge">QGIS</span>
-          <span class="badge">GIS Mapping</span>
-          <span class="badge">Land-use Assessment</span> 
+        <div class="skill-item">
+          <span class="skill-title">Spatial & Analytical</span>
+          <span class="skill-list">QGIS, ArcGIS Pro, Spatial Analysis, GIS Mapping, Land-use Assessment, Site Analysis</span> [cite: 31]
         </div>
-      </div>
-
-      <div class="skills-group">
-        <div class="badge-container">
-          <span class="badge">Adobe Suite</span>
-          <span class="badge">AutoCAD</span>
-          <span class="badge">Figma</span>
-          <span class="badge">Site Planning</span> 
+        <div class="skill-item">
+          <span class="skill-title">Design & Visualization</span>
+          <span class="skill-list">AutoCAD, Photoshop, Illustrator, InDesign, Figma, Concept Visualization, Site Planning Graphics</span> [cite: 32]
+        </div>
+        <div class="skill-item">
+          <span class="skill-title">Domain Knowledge</span>
+          <span class="skill-list">Environmental Planning/Law, Sustainable Design, Community Participation, Conservation Planning, Site Ecology</span> [cite: 33]
         </div>
       </div>
     </div>
   </section>
 
+  <div class="label">Selected Projects</div>
   <section class="grid">
-    <a class="card" href="project-watershed.html">
-      <div class="thumb"><img src="assets/cover-watershed.jpg" alt="Watershed Mapping"></div>
-      <div class="meta">
-        <div class="tag">Research · GIS</div>
-        <div class="title">California Watershed Biodiversity Mapping</div>
-        <div class="summary">整合 8,000+ 条 EPA 水质记录，利用 R 语言工作流分析加州流域的污染密度与生物多样性。 [cite: 20, 22]</div>
-      </div>
-    </a>
-
-    <a class="card" href="project-creek.html">
-      <div class="thumb"><img src="assets/cover-creek.jpg" alt="Ecological Planning"></div>
-      <div class="meta">
-        <div class="tag">Planning · Analysis</div>
-        <div class="title">Ecological Planning & Watershed Connectivity</div>
-        <div class="summary">针对 Putah Creek 廊道进行生态建模，通过核心物种适宜性分析诊断栖息地破碎化模式。 [cite: 24, 25]</div>
-      </div>
-    </a>
-
-    <a class="card" href="project-cela.html">
-      <div class="thumb"><img src="assets/cover-cela.jpg" alt="Research Publication"></div>
-      <div class="meta">
-        <div class="tag">Publication · 2026</div>
-        <div class="title">Inclusive Pedagogical Model for Ecology</div>
-        <div class="summary">设计混合方法评估工具，对生态规划教育的学习成果进行量化统计与专题编码分析。 [cite: 11, 15]</div>
-      </div>
-    </a>
+    <div class="card">
+      <div class="thumb"><img src="project-img.jpg" alt=""></div>
+      <div class="project-title">项目名称</div>
+      <div class="project-desc">简短描述</div>
+    </div>
   </section>
-
-  <footer>
-    &copy; 2025 Sida Shen · UC Davis · Built with Research & Design
-  </footer>
 </div>
 
 </body>
